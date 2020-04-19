@@ -4,8 +4,14 @@ LABEL maintainer="massimo.groppelli@zucchetti.it"
 # ###########
 # VI EDITOR #
 # ###########
+RUN yum install -y vim
+# Create vi - vim alias
+RUN sed -i "/^# User specific aliases and functions$/ a alias vi='vim'" ~/.bashrc
 # Turn on color syntax highlighting and display line numbers along the left side of a window
+# Colors folder /usr/share/vim/vim74/colors
+# Suggested colors: darkblue/delek/slate/torte
 RUN echo "syntax on" > ~/.vimrc \
+    && echo "colo torte" >> ~/.vimrc \
 	&& echo "set number" >> ~/.vimrc
 # When you are inserting text, if you press Enter at the end of your text, 
 # vi will automatically indent the next new line to match the indent of the previous one.
