@@ -1,4 +1,5 @@
 FROM php:7.2-apache
+
 # Required to build on linux non interactive system.
 ENV DEBIAN_FRONTEND=noninteractive
 # Use the default production configuration
